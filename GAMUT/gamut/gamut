@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+gradle compileJava && java -classpath build/classes/main edu.stanford.multiagent.gamer.Main "$@"

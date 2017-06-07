@@ -1,0 +1,3 @@
+#GAMUT v1.0.1
+#Wed Jun 07 14:03:42 CEST 2017
+SymmetricRandomZeroSum=
