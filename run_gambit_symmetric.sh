@@ -1,15 +1,18 @@
 
 #!/bin/bash
 
+
+no_actions=$1
+iterations=$2
+
 cd GAMUT
 cd gamut
 
-
 timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
-for i in 1 2 3 4; do
-	java edu.stanford.multiagent.gamer.Main -g SymmetricRandomZeroSum -actions 9 -f ../games/SymmetricRandomZeroSum_${timestamp}_$i.game -output GambitOutput
+#for i in 1 2 3 4 5; do
+for i in $(seq $iterations); do
+	java edu.stanford.multiagent.gamer.Main -g SymmetricRandomZeroSum -actions $no_actions -f ../games/SymmetricRandomZeroSum_${timestamp}_$i.game -output GambitOutput
 	#java -classpath build/classes/main edu.stanford.multiagent.gamer.Main "$@" -g SymmetricRandomZeroSum -actions 4 -f ../games/SymmetricRandomZeroSum_${timestamp}_$i.game -output GambitOutput
-	#java -classpath /build/classes/main edu.stanford.multiagent.gamer.Main "$@" -g SymmetricRandomZeroSum -actions 2
 	# java -classpath /GAMUT/gamut/build/classes/main edu.stanford.multiagent.gamer.Main "$@" -g SymmetricRandomZeroSum -actions 2
 	# java -cp /tmp/test/ edu.stanford.multiagent.gamer.Main -g SymmetricRandomZeroSum -actions 2
 	#java -jar gamut.jar -g RandomGame -actions 2 -players 4 -f ../games/RandomGame_${timestamp}_$i.game -output GambitOutput
