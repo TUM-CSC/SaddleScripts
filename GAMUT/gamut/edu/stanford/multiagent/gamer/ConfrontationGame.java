@@ -1,11 +1,11 @@
 package edu.stanford.multiagent.gamer;
 
 /**
- * Create a random version of a two-player symmetric zero-sum game.
+ * Create a random version of a two-player confrontation game (symmetric zero-sum game that satisfies off-diagonal property).
  */ 
 
 
-public class SymmetricRandomZeroSum extends ZeroSumGame
+public class ConfrontationGame extends ZeroSumGame
 {
 
     // Parameters: SymmetricZeroSumGame is parameterized by the number
@@ -14,14 +14,14 @@ public class SymmetricRandomZeroSum extends ZeroSumGame
 
     static {
 	rzsParam = new Parameters.ParamInfo[] {Game.actions};
-	Global.registerParams(SymmetricRandomZeroSum.class, rzsParam);
+	Global.registerParams(ConfrontationGame.class, rzsParam);
     }
 
 
     // ----------------------------------------------
 
 
-    public SymmetricRandomZeroSum() 
+    public ConfrontationGame() 
 	throws Exception
     {
 	super();
@@ -80,7 +80,7 @@ public class SymmetricRandomZeroSum extends ZeroSumGame
 	//int low = (int) DEFAULT_LOW;
 	//int high = (int) DEFAULT_HIGH;
 	int high = 10;
-	int low = -10;
+	//int low = -10;
 
 
 	setDescription("Zero Sum Game\n" + getDescription());
@@ -97,7 +97,13 @@ public class SymmetricRandomZeroSum extends ZeroSumGame
 	// and randomly negating half of them
 	while (outcome.hasMoreOutcomes()) {
 	    // double pay = Global.randomDouble(low, high); // to get a double
-		int pay = Global.randomInt(low, high);
+		// generates number between 1 and 10 and randomly decides if it will be negated or not
+		int pay = Global.randomInt(1, high);
+		boolean absolute = Global.randomBoolean();
+
+		if (!absolute)  {
+			pay = -pay;
+		}
 	    
 	    next = outcome.getOutcome();
 	    outcome.nextOutcome();

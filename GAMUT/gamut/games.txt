@@ -12,6 +12,7 @@ PolymatrixGame=
 RandomZeroSum=
 SymmetricRandomZeroSum=
 SymmetricRandom=
+ConfrontationGame=
 BertrandOligopoly=
 RandomCompoundGame=
 ArmsRace=
