@@ -1,2 +1,8 @@
 #!/usr/bin/env bash
+cd edu/stanford/multiagent #/gamer
+#javac -d gamer $(find . -name "*.java")
 javac -d build/classes/main $(find . -name "*.java") && java -classpath build/classes/main edu.stanford.multiagent.gamer.Main "$@"
+cd ..
+cd ..
+cd ..
+#cd ..
