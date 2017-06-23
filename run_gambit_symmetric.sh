@@ -18,7 +18,9 @@ timestamp=$(date +"%Y-%m-%d_%H-%M-%S")
 
 for i in $(seq $iterations); do
 	# change this line if you want to generate other game classes
-	java edu.stanford.multiagent.gamer.Main -g $game_type -actions $no_actions -f ../games/$game_type/$no_actions/${game_type}_${no_actions}_${timestamp}_$i.game -output GambitOutput
+	#java -cp gamut/build/classes/main edu.stanford.multiagent.gamer.Main -g $game_type -actions $no_actions -f games/$game_type/$no_actions/${game_type}_${no_actions}_${timestamp}_$i.game -output GambitOutput
+	java -cp build/classes/main edu.stanford.multiagent.gamer.Main -g $game_type -actions $no_actions -f ../games/$game_type/$no_actions/${game_type}_${no_actions}_${timestamp}_$i.game -output GambitOutput
+	#java edu.stanford.multiagent.gamer.Main -g $game_type -actions $no_actions -f ../games/$game_type/$no_actions/${game_type}_${no_actions}_${timestamp}_$i.game -output GambitOutput
 	#java edu.stanford.multiagent.gamer.Main -g SymmetricRandomZeroSum -actions $no_actions -f ../games/$game_type/$no_actions/SymmetricRandomZeroSum_${no_actions}_${timestamp}_$i.game -output GambitOutput
 	#java edu.stanford.multiagent.gamer.Main -g SymmetricRandomZeroSum -actions $no_actions -f ../games/SymmetricRandomZeroSum_${timestamp}_$i.game -output GambitOutput
 	#java -classpath build/classes/main edu.stanford.multiagent.gamer.Main "$@" -g SymmetricRandomZeroSum -actions 4 -f ../games/SymmetricRandomZeroSum_${timestamp}_$i.game -output GambitOutput
@@ -31,8 +33,8 @@ cd ..
 cd ..
 
 # iterate over all game files in current directory
-#for f in GAMUT/games/*/*.game; do
-for f in GAMUT/games/$game_type/$no_actions/*.game; do
+for f in GAMUT/games/*/*.game; do
+#for f in GAMUT/games/$game_type/$no_actions/*.game; do
 
 	# this block computes nash equilibria for the generated games. Uncomment if you want and/or need that.
 
