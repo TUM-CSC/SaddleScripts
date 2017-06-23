@@ -33,8 +33,8 @@ cd ..
 cd ..
 
 # iterate over all game files in current directory
-for f in GAMUT/games/*/*.game; do
-#for f in GAMUT/games/$game_type/$no_actions/*.game; do
+#for f in GAMUT/games/*/*.game; do
+for f in GAMUT/games/$game_type/$no_actions/*.game; do
 
 	# this block computes nash equilibria for the generated games. Uncomment if you want and/or need that.
 
@@ -56,7 +56,7 @@ for f in GAMUT/games/*/*.game; do
 	if [ "$saddle_type"=="s" ]; then
 		if [ ! -f ${f%.game}.saddle ]; then
 			echo "Running SaddlePy for strict saddles on file $f"
-			python ../SaddlePy/main.py $f GAMUT/games/$game_type #"s" #$saddle_type
+			python2 ../SaddlePy/main.py $f GAMUT/games/$game_type #"s" #$saddle_type # Change if you're using python 3
 		fi
 	fi
 
